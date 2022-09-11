@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Light Prediction</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-widht, intial-scale=1.0">
+    <style>
+        .theDiv{
+            width: 20px;
+            height:20px;
+            border-radius: 50%;
+            background-color: blue;
+            }
+        .one{
+            width:2%;
+            position:absolute;
+            top: 160px;
+            left: 80px;
+        }
+        .two{
+            width:2%;
+            position:absolute;
+            top: 157px;
+            left: 360px;
+        }
+        .three{
+            width:2%;
+            position:absolute;
+            top: 155px;
+            left: 660px;
+        }
+        .four{
+            width:2%;
+            position:absolute;
+            top: 435px;
+            left: 665px;
+        }
+        .five{
+            width:2%;
+            position:absolute;
+            top: 155px;
+            left: 1082px;
+        }
+        .six{
+            width:2%;
+            position:absolute;
+            top: 435px;
+            left: 1082px;
+        }
+    </style>
+</head>
+<body onload="move('theDiv')">
+    <div id="theDiv" src="bluedot.gif" class="theDiv"></div>
+    <form id="traffic" runat="server">
+        <div>
+            <img src="CountDownTrafficLight.gif" class="one" />
+            <img src="CountDownTrafficLight.gif" class="two" />
+            <img src="CountDownTrafficLight.gif" class="three" />
+            <img src="CountDownTrafficLight.gif" class="four" />
+            <img src="CountDownTrafficLight.gif" class="five" />
+            <img src="CountDownTrafficLight.gif" class="six" />
+        </div>
+    </form>
+    <img src="simple_map.png" width="1500px" height="720px">
+    
+
+<script>
+    var dragValue;
+    function move(id){
+        var element =document.getElementById("theDiv");
+        element.style.position="absolute";
+        element.onmousedown=function(){
+            dragValue=element;
+        }
+    }
+    document.onmouseup=function(e){
+        dragValue=null;
+    }
+    document.onmousemove = function(e){
+        var x= e.pageX;
+        var y= e.pageY;
+        dragValue.style.left=x+"px";
+        dragValue.style.top=y+"px";
+    }
+    
+    
+</script>
+</body>
+</html>
